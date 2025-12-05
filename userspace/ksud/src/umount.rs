@@ -1,9 +1,13 @@
-use crate::{defs, ksucalls};
+use std::{
+    fs,
+    io::{BufReader, Read, Write},
+    path::Path,
+};
+
 use anyhow::{Context, Result};
 use log::{info, warn};
-use std::fs;
-use std::io::{BufReader, Read, Write};
-use std::path::Path;
+
+use crate::{defs, ksucalls};
 
 // Magic number for umount config file
 const UMOUNT_CONFIG_MAGIC: u32 = 0x4B53_554D; // KSUM
